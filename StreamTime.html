@@ -1,0 +1,12 @@
+<html>
+<body>
+<script>
+    function renderDate(){
+        document.getElementById("date").innerHTML = "Streamer's Time: "+Date().toString();
+    }
+    var t = setInterval(renderDate,1000);
+</script>
+
+<p id="date"></p>
+</body>
+</html>

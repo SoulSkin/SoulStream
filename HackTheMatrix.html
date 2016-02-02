@@ -1,0 +1,52 @@
+<html>
+<body>
+<script>
+	var run = false;
+	var characters = "QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM?qwertyuiop[]\\asdfghjkl;'zxcvbnm,./`1234567890-=~!@#$%^&*()_+\"";
+	var tick;
+	var buffer = [];
+	
+	function listToLines(InList){
+		var lines = "";
+		for (var i=0; i<InList.length ;i++){
+			lines += InList[i]+"<br>";
+			//lines.concat(String(InList[i])+"<br>");
+		}
+		return lines;
+	}
+	
+    function randomLine(lineLength){
+        var text = "";
+		for( var i=0; i < lineLength; i++ ){
+			text += characters.charAt(Math.floor(Math.random() * characters.length));
+		}
+		return text;
+    }
+	
+	function addLineToBuffer(lineToAdd){
+		return buffer.push(lineToAdd);
+	}
+	
+	function renderBuffer(InBuffer){
+		document.getElementById("screen").innerHTML = listToLines(InBuffer);
+	}
+	
+	function toggleGenerate(){
+		if (run == false){
+			tick = setInterval(function(){ renderBuffer(addLineToBuffer(randomLine(Math.random()*100))) }, Math.random()*500);
+			run = true;
+		}
+		else if (run == true){
+			clearInterval(tick);
+			run = false;
+		}
+	}
+
+</script>
+
+<button style = ":hover" onclick = "toggleGenerate()">Start/Stop Hacking the Matrix!</button>
+
+<p id="screen"></p>
+
+</body>
+</html>

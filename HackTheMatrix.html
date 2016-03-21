@@ -1,3 +1,4 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <body>
 <script>
@@ -6,13 +7,17 @@
 	var tick;
 	var buffer = [];
 	
-	function listToLines(InList){
+	function listToLines2(InList){
 		var lines = "";
 		for (var i=0; i<InList.length ;i++){
-			lines += InList[i]+"<br>";
-			//lines.concat(String(InList[i])+"<br>");
+			//lines += InList[i]+"<br>";
+			lines.concat(String(InList[i])+"<br>");
 		}
 		return lines;
+	}
+	
+	function listToLines(InList){
+		return InList.join("");
 	}
 	
     function randomLine(lineLength){
